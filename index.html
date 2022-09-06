@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/">
+    <link rel="icon" href="/favicon.png" sizes="any">
+    <link href="/index.css" rel="stylesheet" type="text/css">
+    <title>JS+ - Heal your legacy code</title>
+  </head>
+  <body>
+    <main>
+      <aside id="sidebar">
+        <h1>DOM</h1>
+        <ul>
+          <li>
+            <h2>Basic</h2>
+            <nav>
+              <a href="#/">Hello World</a>
+            </nav>
+          </li>
+          <li>
+            <h2>Reactivity</h2>
+            <nav>
+              <a href="#/stateful-component">Stateful Component</a>
+              <a href="#/side-effects">Set State with Effect</a>
+              <a href="#/multiple-state">Multiple Stateful Component</a>
+            </nav>
+          </li>
+          <li>
+            <h2>Work Asynchronously</h2>
+            <nav>
+              <a href="#/element-future">Element Future</a>
+              <a href="#/next-element-future">Next Element Future</a>
+            </nav>
+          </li>
+          <li>
+            <h2>Hydration</h2>
+            <nav>
+              <a href="#/full-hydration">Full Hydration</a>
+              <a href="#/lazy-hydration">Lazy Hydration</a>
+            </nav>
+          </li>
+          <li>
+            <h2>Optimization</h2>
+            <nav>
+              <a href="#/element-builder-struct-only">Element Builder Struct Only</a>
+              <a href="#/element-builder-only">Element Builder Only</a>
+            </nav>
+          </li>
+        </ul>
+      </aside>
+      <div class="koma" id=","></div>
+    </main>
+    <div class="notify-listener" id="notify_listener">
+      <i>Wait a moment...</i>
+    </div>
+    <script src="lib/modular/min/script.js"></script>
+    <script src="lib/spa/min/koma.js"></script>
+    <script src="lib/dom/min/element-builder.js"></script>
+    <script src="lib/dom/min/stateful-component.js"></script>
+    <script src="src/index.js"></script>
+  </body>
+</html>
