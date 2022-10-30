@@ -17,14 +17,14 @@
       count: CounterProvider.state.count + 1 // increment the previous state
     });
     
-    // update state use setStateEffect prototype
-    GreetingsProvider.setStateEffect(function (state) {
+    // update state use setState prototype with Effect
+    GreetingsProvider.setState(function (state) {
       state.title = "It Works!";
       state.subtitle = "Welcome to JSPlus!";
     });
     
     // update state while checking state in other components
-    ThemeProvider.setStateEffect(function (state) {
+    ThemeProvider.setState(function (state) {
       // check value(count) from CounterProvider
       if ((CounterProvider.state.count % 2) === 0) { 
         state.backgroundColor = "#f4f4f4";

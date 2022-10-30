@@ -167,7 +167,7 @@ Here's the previous code that has become stateful
 new StatefulComponent({
     count: 0
 }) // declare stateful component
-.build(function (state, setState) { // args (state, setState, setStateEffect)
+.build(function (state, setState) { // args (state, setState)
     return new ElementBuilder(document.getElementById("test")).setChildren([
       new ElementBuilder("h1")
         .setStyles({
@@ -199,7 +199,7 @@ new StatefulComponent({
 });
 ```
 
-Another example of a stateful component that has used the setStateEffect. setStateEffect provides a way to update state to make it more assignable.
+Another example of a stateful component that has used the setState with Effect. setState provides a way to update object of state to make it more assignable.
 
 This is useful for states with deep object structures.
 
@@ -210,9 +210,9 @@ new StatefulComponent({
       theme: "light"
     }
 })
-.build(function (state, _, setStateEffect) {
+.build(function (state, setState) {
     const handleClick = function () {
-        setStateEffect(function () {
+        setState(function () {
             state.data.count = state.data.count + 1; // direct assignment
             
             if ((state.data.count % 2) === 0) {
@@ -276,14 +276,14 @@ const handleUpdate = function () {
         count: CounterProvider.state.count + 1 // increment the previous state
     });
     
-    // update state use setStateEffect prototype
-    GreetingsProvider.setStateEffect(function (state) {
+    // update state use setState prototype with Effect
+    GreetingsProvider.setState(function (state) {
         state.title = "It Works!";
         state.subtitle = "Welcome to JSPlus!";
     });
     
     // update state while checking state in other components
-    ThemeProvider.setStateEffect(function (state) {
+    ThemeProvider.setState(function (state) {
         // check value(count) from CounterProvider
         if ((CounterProvider.state.count % 2) === 0) { 
             state.backgroundColor = "#f4f4f4";
@@ -475,7 +475,7 @@ new StatefulComponent({
         "Testing!"
     ],
     payload: ""
-}).build(function (state, setState, setStateEffect) {
+}).build(function (state, setState) {
     return new ElementBuilder(document.getElementById("testimonials")).setChildren([
         new ElementBuilder("h1").setChildren("Testimonials!"),
         new ElementBuilder("div").setChildren(
@@ -498,7 +498,7 @@ new StatefulComponent({
             .setAttributes({ type: "button" })
             .setChildren("SEND")
             .setEvent("click", function () {
-                setStateEffect(function () {
+                setState(function () {
                     state.items.unshift(state.payload);
                     state.payload = "";
                 });
@@ -536,7 +536,7 @@ new StatefulComponent({
         "Testing!"
     ],
     payload: ""
-}).build(function (state, setState, setStateEffect) {
+}).build(function (state, setState) {
     return new ElementBuilder(document.getElementById("testimonials")).setChildren([
         new ElementBuilder(document.querySelector("hgroup")), // use querySelector
         new ElementBuilder("div").setChildren(
@@ -552,7 +552,7 @@ new StatefulComponent({
         new ElementBuilder("br"),
         new ElementBuilder(document.querySelector("button")) //use querySelector
             .setEvent("click", function () { // just add event
-                setStateEffect(function () {
+                setState(function () {
                     state.items.unshift(state.payload);
                     state.payload = "";
                 });

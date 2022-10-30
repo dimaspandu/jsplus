@@ -9,7 +9,7 @@
     ],
     payload: ""
   })
-  .build(function (state, setState, setStateEffect) {
+  .build(function (state, setState) {
     return new ElementBuilder(document.getElementById("testimonials")).setChildren([
       new ElementBuilder("h1").setChildren("Testimonials!"),
       new ElementBuilder("div").setChildren(
@@ -32,7 +32,7 @@
         .setAttributes({ type: "button" })
         .setChildren("SEND")
         .setEvent("click", function () {
-          setStateEffect(function () {
+          setState(function () {
             state.items.unshift(state.payload);
             state.payload = "";
           });

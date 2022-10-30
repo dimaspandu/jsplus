@@ -4,7 +4,7 @@
   new StatefulComponent({
     count: 0
   }) // declare stateful component
-  .build(function (state, setState) { // args (state, setState, setStateEffect)
+  .build(function (state, setState) { // args (state, setState)
     return new ElementBuilder(document.getElementById("app")).setChildren([
       new ElementBuilder("h1")
         .setStyles({

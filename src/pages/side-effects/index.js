@@ -7,9 +7,9 @@
       theme: "light"
     }
   })
-  .build(function (state, _, setStateEffect) {
+  .build(function (state, setState) {
     const handleClick = function () {
-      setStateEffect(function () {
+      setState(function () {
         state.data.count = state.data.count + 1; // direct assignment
         
         if ((state.data.count % 2) === 0) {

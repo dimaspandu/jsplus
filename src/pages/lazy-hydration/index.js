@@ -9,7 +9,7 @@
     ],
     payload: ""
   })
-  .build(function (state, setState, setStateEffect) {
+  .build(function (state, setState) {
     return new ElementBuilder(document.getElementById("testimonials")).setChildren([
       new ElementBuilder(document.querySelector("hgroup")), // use querySelector
       new ElementBuilder("div").setChildren(
@@ -25,7 +25,7 @@
       new ElementBuilder("br"),
       new ElementBuilder(document.querySelector("button")) //use querySelector
         .setEvent("click", function () { // just add event
-          setStateEffect(function () {
+          setState(function () {
             state.items.unshift(state.payload);
             state.payload = "";
           });
